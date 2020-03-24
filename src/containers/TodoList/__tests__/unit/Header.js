@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import Header from '../../../components/Header'
+import Header from '../../components/Header.vue'
 
 describe('Header 包含input框', () => {
   it('组件渲染正常', () => {
