@@ -50,7 +50,6 @@ export default {
       this.undoList = this.undoList.map(
         item => (item = { status: 'div', value: item.value })
       )
-      console.log(this.undoList)
     },
     changeItemValue(obj) {
       const { index, value } = obj

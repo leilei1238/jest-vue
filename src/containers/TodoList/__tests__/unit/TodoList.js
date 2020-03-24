@@ -30,7 +30,7 @@ describe('TodoList 组件', () => {
 
   it('初始化时，undoList 应该为空', () => {
     const wrapper = shallowMount(TodoList)
-    const undoList = wrapper.vm.$data.undoList
+    const undoList = wrapper.vm.undoList
     expect(undoList).toEqual([])
   })
 

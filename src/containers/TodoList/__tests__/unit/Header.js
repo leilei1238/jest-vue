@@ -14,14 +14,14 @@ describe('Header组件', () => {
   })
   it('输入框，初始内容为空', () => {
     const wrapper = shallowMount(Header)
-    const inputValue = wrapper.vm.$data.inputValue
+    const inputValue = wrapper.vm.inputValue
     expect(inputValue).toBe('')
   })
   it('输入框值发生变化，数据应该跟着变', () => {
     const wrapper = shallowMount(Header)
     const input = findTestWrapper(wrapper, 'input')
     input.setValue('hello')
-    const inputValue = wrapper.vm.$data.inputValue
+    const inputValue = wrapper.vm.inputValue
     expect(inputValue).toBe('hello')
   })
 
@@ -38,13 +38,13 @@ describe('Header组件', () => {
     input.setValue('test')
     input.trigger('keyup.enter')
     expect(wrapper.emitted().add).toBeTruthy()
-    expect(wrapper.vm.$data.inputValue).toBe('')
+    expect(wrapper.vm.inputValue).toBe('')
   })
   it('输入框回车时，有内容时，向外触发事件，同时清空inputValue', () => {
     const wrapper = shallowMount(Header)
     const input = findTestWrapper(wrapper, 'input')
     input.setValue('test')
     input.trigger('keyup.enter')
-    expect(wrapper.vm.$data.inputValue).toBe('')
+    expect(wrapper.vm.inputValue).toBe('')
   })
 })
