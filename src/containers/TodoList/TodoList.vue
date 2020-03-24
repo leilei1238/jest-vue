@@ -21,7 +21,10 @@ export default {
   },
   methods: {
     addUndoItem(inputValue) {
-      this.undoList.push(inputValue)
+      this.undoList.push({
+        status: 'div',
+        value: inputValue
+      })
     },
     handleItemDelete(index) {
       this.undoList.splice(index, 1)

@@ -9,7 +9,7 @@
         data-test="item"
         class="item"
         v-for="(item, index) in list"
-        :key="item"
+        :key="item.value"
       >
         <span
           data-test="delete-button"
@@ -22,7 +22,7 @@
         >
           -
         </span>
-        {{ item }}
+        {{ item.value }}
       </li>
     </ul>
   </div>

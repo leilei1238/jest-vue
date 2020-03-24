@@ -11,13 +11,21 @@ describe('TodoList 组件', () => {
   })
 
   it('addUndoItem方法被执行时，undoList列表内容会增加一个', () => {
-    const content = 'abc'
     const wrapper = shallowMount(TodoList)
     wrapper.setData({
-      undoList: [1, 2]
+      undoList: [
+        { status: 'div', value: 1 },
+        { status: 'div', value: 2 },
+        { status: 'div', value: 3 }
+      ]
     })
-    wrapper.vm.addUndoItem(content)
-    expect(wrapper.vm.undoList).toEqual([1, 2, content])
+    wrapper.vm.addUndoItem(4)
+    expect(wrapper.vm.undoList).toEqual([
+      { status: 'div', value: 1 },
+      { status: 'div', value: 2 },
+      { status: 'div', value: 3 },
+      { status: 'div', value: 4 }
+    ])
   })
 
   it('初始化时，undoList 应该为空', () => {
@@ -36,9 +44,16 @@ describe('TodoList 组件', () => {
   it('handleList方法被执行时，undoList列表内容会减少一个', () => {
     const wrapper = shallowMount(TodoList)
     wrapper.setData({
-      undoList: [1, 2, 3]
+      undoList: [
+        { status: 'div', value: 1 },
+        { status: 'div', value: 2 },
+        { status: 'div', value: 3 }
+      ]
     })
     wrapper.vm.handleItemDelete(1)
-    expect(wrapper.vm.undoList).toEqual([1, 3])
+    expect(wrapper.vm.undoList).toEqual([
+      { status: 'div', value: 1 },
+      { status: 'div', value: 3 }
+    ])
   })
 })
