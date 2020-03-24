@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`HelloWorld.vue 组件渲染正常 1`] = `
-<div class="hello">
-  <h1>helloworld</h1>
-  <p>22222</p>
-</div>
-`;
