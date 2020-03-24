@@ -10,7 +10,17 @@
         class="item"
         v-for="(item, index) in list"
         :key="item.value"
+        @click="() => changeStatus(index)"
       >
+        <input
+          v-if="item.status === 'input'"
+          :value="item.value"
+          data-test="input"
+          class="input"
+          @mouseleave="handleInputBlur"
+          @change="e => handleInputUpdate(index, e.target.value)"
+        />
+        <span v-else>{{ item.value }}</span>
         <span
           data-test="delete-button"
           class="delete-button"
@@ -22,7 +32,6 @@
         >
           -
         </span>
-        {{ item.value }}
       </li>
     </ul>
   </div>
@@ -38,6 +47,18 @@ export default {
   methods: {
     handleDelete(index) {
       this.$emit('delete', index)
+    },
+    changeStatus(index) {
+      this.$emit('status', index)
+    },
+    handleInputBlur() {
+      this.$emit('reset')
+    },
+    handleInputUpdate(index, value) {
+      this.$emit('change', {
+        index,
+        value
+      })
     }
   }
 }
@@ -93,5 +114,10 @@ export default {
   color #000
   font-size 12px
   cursor pointer
+}
+.input{
+  height 22px
+  text-indent 10px
+  width 460px
 }
 </style>
